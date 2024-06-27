@@ -1,0 +1,6 @@
+org/example/thortfultask/entity/Advice.class
+org/example/thortfultask/service/AdviceService.class
+org/example/thortfultask/ThortfulTaskApplication.class
+org/example/thortfultask/config/CacheConfig.class
+org/example/thortfultask/service/serviceImpl/AdviceServiceImpl.class
+org/example/thortfultask/controller/AdviceController.class
