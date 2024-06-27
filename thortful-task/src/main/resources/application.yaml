@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: deviceManagement
+  docker:
+    compose:
+      lifecycle-management: start-only
+  cache:
+    type: simple  # Use simple in-memory cache
+    cache-names:
+      - advices  # Define the cache name
+
+webclient:
+  max-in-memory-size: 2MB  # Configure max in-memory size for WebClient
+
+reactor:
+  netty:
+    io:
+      worker:
+        threadCount: 16  # Set the number of worker threads
+    pool:
+      maxConnections: 100  # Set the max connections in the pool
+error:
+  handling:
+    http-status-in-json-response: true
+    exception-logging: NO_LOGGING
+    full-stacktrace-http-statuses: 5xx
+    log-levels:
+      5xx: ERROR
+    codes:
+      DeviceNameUnique: DEVICE_NAME_UNIQUE
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{traceId:-},%X{spanId:-}]"
+springdoc:
+  pathsToMatch: /, /api/**
+  swagger-ui:
+    path: "/swagger-ui.html"
